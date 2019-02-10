@@ -50,6 +50,8 @@
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
     "no-var-requires": false,
+    "no-var-keyword": true,
+    "no-eval": true,
     "object-literal-key-quotes": [
       true,
       "as-needed"
@@ -60,7 +62,21 @@
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
