@@ -1,3 +1,6 @@
 <div>
-  <app-source-title [title]="sourceTitle"></app-source-title>
+  <app-headline [title]="sourceTitle"></app-headline>
+  <ul *ngFor="let article of articles">
+    <app-article [article]="article" isPreview="true"></app-article>
+  </ul>
 </div>

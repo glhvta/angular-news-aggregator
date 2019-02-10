@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-source-title',
-  templateUrl: './source-title.component.html',
-  styleUrls: ['./source-title.component.scss'],
+  selector: 'app-headline',
+  templateUrl: './headline.component.html',
+  styleUrls: ['./headline.component.scss'],
 })
 export class SourceTitleComponent implements OnInit {
   @Input() title: string;

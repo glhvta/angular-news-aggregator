@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SourceTitleComponent } from './shared/components/source-title/source-title.component';
+import { SourceTitleComponent } from './shared/components/headline/headline.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ButtonComponent } from './shared/components/button/button.component';
+import { ArticleComponent } from './components/article/article.component';
+import { ArticlePreviewComponent } from './pages/article-preview/article-preview.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ButtonComponent } from './shared/components/button/button.component';
     SourceTitleComponent,
     HomeComponent,
     ButtonComponent,
+    ArticleComponent,
+    ArticlePreviewComponent,
   ],
   imports: [
     BrowserModule,

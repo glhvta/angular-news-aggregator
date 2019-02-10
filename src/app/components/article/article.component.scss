@@ -1,0 +1,44 @@
+.article {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  list-style: none;
+  flex-direction: column;
+
+  &.preview {
+    flex-direction: row;
+    
+    .article__image {
+      margin: 0 10px 0 0;
+    }
+  }
+
+  &__text {
+    padding: 20px 5px;
+    color: #585a56;
+    background: #fafbfb;
+
+    &__title {
+      font-size: 34px;
+      font-weight: bold;
+      color: #272424;
+      text-decoration: none;
+    }
+
+    &__date {
+      color: #585a56;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 30px;
+
+
+    img {
+      width: 100%;
+      border-radius: 3px;
+    }
+  }
+}

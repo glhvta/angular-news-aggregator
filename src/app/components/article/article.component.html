@@ -1,0 +1,17 @@
+<li class="article" [class.preview]="isPreview">
+  <a class="article__image" href="/article-preview">
+    <img [src]="article.urlToImage"/>
+  </a>
+
+  <div class="article__text">
+    <a class="article__text__title" href="/article-preview" target="_blank">
+      {{article.title}}
+    </a>
+    <p class="article__text__description">{{article.description}}</p>
+    <div *ngIf="!isPreview">
+        <p class="article__text__description">{{article.content}}</p>
+        <p class="article__text__date">{{article.publishedAt | date}}</p> 
+    </div>
+  </div>
+
+</li>
