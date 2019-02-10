@@ -1,13 +1,17 @@
 .header {
   display: flex;
-  padding: 15px 40px;
+  padding: 5px 40px;
   align-items: center;
   justify-content: space-between;
-  background-color: #242424; //TODO: use color constants
-  color: #F1F3F2;
+  background-color: #F1F3F2 ; //TODO: use color constants
+  color: #242424;
 
   &__logo {
     flex: 1;
+
+    img {
+      width: 250px;
+    }
   }
 
   &__login {
