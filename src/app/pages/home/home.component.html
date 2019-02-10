@@ -1,6 +1,14 @@
-<div>
+<div class="home-page">
   <app-headline [title]="sourceTitle"></app-headline>
-  <ul *ngFor="let article of articles">
-    <app-article [article]="article" isPreview="true"></app-article>
-  </ul>
+  <div class="home-page__content">
+    <ul *ngFor="let article of articles">
+      <app-article [article]="article" isPreview="true"></app-article>
+    </ul>
+    <div class="home-page__loading-btn">
+      <app-button 
+        text="Load more" 
+        type="primary"
+        (buttonClick)="loadNews()"></app-button>
+    </div>
+  </div>
 </div>

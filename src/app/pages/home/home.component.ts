@@ -16,4 +16,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  loadNews() {
+    console.log('Load news!');
+  }
+
 }

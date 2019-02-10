@@ -1,14 +1,12 @@
 .article {
-  width: 80%;
   display: flex;
-  margin: 0 auto;
   padding-bottom: 40px;
   list-style: none;
   flex-direction: column;
 
   &.preview {
     flex-direction: row;
-    
+
     .article__image {
       margin: 0 10px 0 0;
     }
