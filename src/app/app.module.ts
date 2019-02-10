@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticlePreviewComponent } from './pages/article-preview/article-preview.component';
+import { EditComponent } from './pages/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ArticlePreviewComponent } from './pages/article-preview/article-preview
     ButtonComponent,
     ArticleComponent,
     ArticlePreviewComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
