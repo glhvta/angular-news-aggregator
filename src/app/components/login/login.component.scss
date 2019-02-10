@@ -1,0 +1,26 @@
+.login-wrapper {
+  display: flex;
+  justify-content: flex-end;
+
+  .logout {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      margin-left: 10px;
+    }
+
+    &__icon {
+      font-size: 35px;
+    }
+  }
+
+  button {
+    font-size: 14px;
+    background-color: #81a3a7; //TODO: use theme constant
+    color: #f1f3f2;
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: none;
+  }
+}

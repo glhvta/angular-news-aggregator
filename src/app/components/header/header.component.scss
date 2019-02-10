@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  padding: 5px 20px;
+  padding: 15px 40px;
   align-items: center;
   justify-content: space-between;
   background-color: #242424; //TODO: use color constants
@@ -12,6 +12,5 @@
 
   &__login {
     flex: 2;
-    text-align: right;
   }
 }
