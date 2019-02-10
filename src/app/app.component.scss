@@ -1,0 +1,13 @@
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex: 1 0 auto;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+  }
+}
