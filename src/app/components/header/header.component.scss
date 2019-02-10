@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  padding: 5px 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #242424; //TODO: use color constants
+  color: #F1F3F2;
+
+  &__logo {
+    flex: 1;
+  }
+
+  &__login {
+    flex: 2;
+    text-align: right;
+  }
+}
