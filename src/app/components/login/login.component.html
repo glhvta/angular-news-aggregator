@@ -1,10 +1,15 @@
 <div class="login-wrapper">
   <div *ngIf="!isLogged"  class="login">
-    <!-- TODO: use shared button component  -->
-    <button (click)="handleLogin()">Log in</button>
+    <app-button 
+      text="Log in" 
+      type="primary" 
+      (buttonClick)="handleLogin()"></app-button>
   </div>
   <div *ngIf="isLogged" class="logout">
     <i class="fas fa-user-circle logout__icon"></i>
-    <button (click)="handleLogout()">Log out</button>
+    <app-button 
+      text="Log out" 
+      type="primary" 
+      (buttonClick)="handleLogout()"></app-button>
   </div>
 </div>

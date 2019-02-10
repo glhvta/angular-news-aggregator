@@ -1,0 +1,13 @@
+.source-title {
+  display: flex;
+  padding: 17px;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    margin: 0;
+    font-size: 35px;
+    color: #272424;
+    text-transform: uppercase;
+  }
+}

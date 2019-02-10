@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SourceTitleComponent } from './shared/components/source-title/source-title.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ButtonComponent } from './shared/components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,9 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     LoginComponent,
     FooterComponent,
+    SourceTitleComponent,
+    HomeComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

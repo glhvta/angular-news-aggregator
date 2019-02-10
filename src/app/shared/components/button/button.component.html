@@ -1,0 +1,7 @@
+<button 
+  class="button"
+  [class.primary]="type === 'primary'"
+  [class.secondary]="type === 'secondary'"
+  (click)="handleClick()">
+  {{text}}
+</button>
