@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { ButtonComponent } from './shared/components/button/button.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticlePreviewComponent } from './pages/article-preview/article-preview.component';
 import { EditComponent } from './pages/edit/edit.component';
+import { ArticleEditorComponent } from './components/article-editor/article-editor.component';
+import { InputComponent } from './shared/components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,13 @@ import { EditComponent } from './pages/edit/edit.component';
     ArticleComponent,
     ArticlePreviewComponent,
     EditComponent,
+    ArticleEditorComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,69 @@
+<form [formGroup]="articleForm" class="article-editor" (ngSubmit)="onSubmit()">
+  
+  <div class="article-editor__form-controls-wrapper">
+    <div class="article-editor__column">
+      <div class="article-editor__form-control">
+        <label>
+          <p class="article-editor__label">Heading:</p>
+          <input type="text" formControlName="title">
+        </label>
+      </div>
+
+      <div class="article-editor__form-control">
+        <label>
+          <p class="article-editor__label">Short description:</p>
+          <input type="text" formControlName="description">
+        </label>
+      </div>
+
+      <div class="article-editor__form-control">
+        <label>
+          <p class="article-editor__label">Content:</p>
+          <textarea type="text" formControlName="content"></textarea>
+        </label>
+    </div>
+    </div>
+
+    <div class="article-editor__column">
+      <div class="article-editor__form-control">
+        <label>
+          <div>
+              <p class="article-editor__label">Image:
+              
+              <label>URL 
+                  <input type="radio" name="imageType" value="url">
+              </label> 
+              <label>FILE 
+                  <input type="radio" name="imageType" value="file">
+              </label>
+              </p>
+          </div>
+          <input type="articleForm.value.imageType.value?" formControlName="image">
+        </label>
+      </div>
+
+      <div class="article-editor__form-control">
+        <label>
+          <p class="article-editor__label">Date:</p>
+          <input type="text" formControlName="date">
+        </label>
+      </div>
+
+      <div class="article-editor__form-control">
+        <label>
+          <p class="article-editor__label">Author:</p>
+          <input type="text" formControlName="author">
+        </label>
+      </div>
+
+
+      <div class="article-editor__form-control">
+        <label>
+          <p class="article-editor__label">Source URL:</p>
+          <input type="text" formControlName="sourceUrl">
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!articleForm.valid">Submit</button>
+</form>

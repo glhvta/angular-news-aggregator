@@ -1,0 +1,30 @@
+.article-editor {
+  width: 80%;
+  margin: 0 auto;
+
+  &__form-controls-wrapper {
+    display: flex;
+
+  }
+  
+  &__column {
+    width: 50%;
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__label {
+    margin: 10px 0;
+  }
+  
+  //TODO: move input to shared component
+  input:not([type="radio"]), textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #c2d3da;
+  }
+}
