@@ -19,6 +19,13 @@
   &__label {
     margin: 10px 0;
   }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+  }
   
   //TODO: move input to shared component
   input:not([type="radio"]), textarea {
@@ -26,5 +33,9 @@
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #c2d3da;
+  }
+
+  textarea {
+    height: 200px;
   }
 }

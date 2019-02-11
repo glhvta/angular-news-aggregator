@@ -65,5 +65,8 @@
       </div>
     </div>
   </div>
-  <button type="submit" [disabled]="!articleForm.valid">Submit</button>
+  <div class="article-editor__buttons">
+    <app-button type="submit" text="Submit"></app-button>
+    <app-button text="Clear"></app-button>
+  </div>
 </form>
