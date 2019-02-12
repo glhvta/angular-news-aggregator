@@ -1,10 +1,10 @@
 <li class="article" [class.preview]="isPreview">
-  <a class="article__image" href="/article-preview">
+  <a class="article__image" routerLink="/article-preview">
     <img [src]="article.urlToImage"/>
   </a>
 
   <div class="article__text">
-    <a class="article__text__title" href="/article-preview" target="_blank">
+    <a class="article__text__title" routerLink="/article-preview">
       {{article.title}}
     </a>
     <p class="article__text__description">{{article.description}}</p>
