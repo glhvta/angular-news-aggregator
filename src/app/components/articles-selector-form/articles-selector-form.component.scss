@@ -1,0 +1,46 @@
+.articles-selector {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  padding: 29px;
+  border-top: 1px solid #81a3a7;
+  border-bottom: 1px solid #81a3a7;
+
+  &__settings {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    &__label {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    &__form-control {
+      padding-right: 10px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+  }
+
+  //TODO: move input to shared component
+  input,
+  select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #c2d3da;
+  }
+
+  //TODO: use shared component, check why input text is not rendered
+  button {
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 100px;
+    border: none;
+  }
+}

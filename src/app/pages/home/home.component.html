@@ -1,5 +1,6 @@
 <div class="home-page">
   <app-headline [title]="sourceTitle"></app-headline>
+  <app-articles-selector-form></app-articles-selector-form>
   <div class="home-page__content">
     <ul *ngFor="let article of articles">
       <app-article [article]="article" isPreview="true"></app-article>

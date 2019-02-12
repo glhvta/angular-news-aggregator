@@ -15,6 +15,7 @@ import { ArticlePreviewComponent } from './pages/article-preview/article-preview
 import { EditComponent } from './pages/edit/edit.component';
 import { ArticleEditorComponent } from './components/article-editor/article-editor.component';
 import { InputComponent } from './shared/components/input/input.component';
+import { ArticlesSelectorFormComponent } from './components/articles-selector-form/articles-selector-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { InputComponent } from './shared/components/input/input.component';
     EditComponent,
     ArticleEditorComponent,
     InputComponent,
+    ArticlesSelectorFormComponent,
   ],
   imports: [
     BrowserModule,
