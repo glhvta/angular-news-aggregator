@@ -11,16 +11,15 @@ import { NewsReceiverService } from 'src/app/core/services/news-receiver.service
 export class HomeComponent implements OnInit {
   isLocalProvider: boolean = true;
   sourceTitle: string = 'Source title';
-  articles: Article[] = [];
+  articles: Article[];
 
   constructor(private newsReceiver: NewsReceiverService) {}
 
   ngOnInit() {}
 
   loadNews(): void {
-    this.newsReceiver.getNews().subscribe(articles => {
-      this.articles = [...this.articles, ...articles];
-    });
+    this.newsReceiver.getNews()
+      .subscribe(articles => (this.articles = articles));
   }
 
   toggleLocalNewsStatus(): void {

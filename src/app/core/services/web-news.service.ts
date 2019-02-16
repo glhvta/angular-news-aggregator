@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { pluck } from 'rxjs/operators';
+import { pluck, tap, mapTo } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,6 +10,7 @@ import { Article } from '../models/article';
 })
 export class WebNewsService {
   private page: number = 1;
+  private articles: Article[] = [];
 
   private requestConfig = {
     endPoint: 'https://newsapi.org/v2/top-headlines',
@@ -20,10 +21,21 @@ export class WebNewsService {
 
   public getNews(): Observable<Article[]> {
     // TODO: integrate error handling
+
     return this.http.get(this.requestUrl).pipe(
       pluck('articles'),
+      tap(this.updateArticles),
+      mapTo(this.webArticles),
       // catchError(console.warn),
     );
+  }
+
+  private updateArticles = (articles: Article[]): void => {
+    this.articles = this.articles.concat(articles);
+  }
+
+  private get webArticles(): Article[] {
+    return this.articles;
   }
 
   private get requestUrl(): string {
