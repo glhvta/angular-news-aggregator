@@ -8,7 +8,8 @@ import { articlesMock } from 'src/app/core/mocks/articles.mock';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  sourceTitle: string = 'Source title'; // TODO: remove mocks
+  isLocalProvider: boolean = true;
+  sourceTitle: string = 'Source title';
   articles: Article[] = articlesMock;
 
   constructor() { }
@@ -18,6 +19,10 @@ export class HomeComponent implements OnInit {
 
   loadNews() {
     console.log('Load news!');
+  }
+
+  toggleLocalNewsStatus(): void {
+    this.isLocalProvider = !this.isLocalProvider;
   }
 
 }

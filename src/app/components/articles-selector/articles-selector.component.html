@@ -1,11 +1,11 @@
 <div  class="articles-selector">
   <!-- TODO: Refactor and split into components! -->
-  <form class="articles-selector__settings" [formGroup]="settingForm">
+  <div class="articles-selector__settings">
 
     <div class="articles-selector__settings__form-control">
         <label  class="articles-selector__settings__label" for="source">Select source:</label>
         <!-- TODO: remove mocks -->
-        <select formControlName="source" name="source">
+        <select  name="source">
             <option value="">--Please choose an option--</option>
             <option value="bbc">BBS</option>
             <option value="times">TIMES</option>
@@ -15,17 +15,17 @@
     <div class="articles-selector__settings__form-control">
       <label>
         <button class="articles-selector__settings_label">Filter: </button>
-        <input type="text" formControlName="filterText" />
+        <input type="text" [value]="filterText" />
       </label>
     </div>
     <div class="articles-selector__settings__form-control">
       <label>
         <span class="articles-selector__settings_label">Created by me:</span>
-        <input type="checkbox" formControlName="areLocal" />
+        <input type="checkbox" [value]="isLocalProvider" (input)="handleProviderChange()"/>
       </label>
     </div>
 
-  </form>
+  </div>
 
   <a routerLink="/edit"><button>Add Article</button></a>
 </div>

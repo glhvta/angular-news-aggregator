@@ -15,7 +15,8 @@ import { ArticlePreviewComponent } from './pages/article-preview/article-preview
 import { EditComponent } from './pages/edit/edit.component';
 import { ArticleEditorComponent } from './components/article-editor/article-editor.component';
 import { InputComponent } from './shared/components/input/input.component';
-import { ArticlesSelectorFormComponent } from './components/articles-selector-form/articles-selector-form.component';
+import { ArticlesSelectorComponent } from './components/articles-selector/articles-selector.component';
+import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ArticlesSelectorFormComponent } from './components/articles-selector-fo
     EditComponent,
     ArticleEditorComponent,
     InputComponent,
-    ArticlesSelectorFormComponent,
+    ArticlesSelectorComponent,
+    ArticlesListComponent,
   ],
   imports: [
     BrowserModule,
