@@ -16,12 +16,17 @@
     padding: 20px 5px;
     color: var(--SECONDARY);
     background: var(--LIGHT);
+    flex: 1;
 
     &__title {
       font-size: 34px;
       font-weight: bold;
       color: var(--DARK);
       text-decoration: none;
+
+      &:hover {
+        color: var(--PRIMARY);
+      }
     }
 
     &__date {
@@ -32,7 +37,7 @@
   &__image {
     width: 100%;
     margin-bottom: 30px;
-
+    flex: 1;
 
     img {
       width: 100%;
