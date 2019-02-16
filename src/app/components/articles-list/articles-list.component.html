@@ -1,0 +1,11 @@
+<div class="articles-list">
+  <ul *ngFor="let article of articles">
+    <app-article [article]="article" isPreview="true"></app-article>
+  </ul>
+  <div class="articles-list__loading-btn">
+    <app-button 
+      text="Load more" 
+      type="primary"
+      (buttonClick)="onLoadButtonClick()"></app-button>
+  </div>
+</div>

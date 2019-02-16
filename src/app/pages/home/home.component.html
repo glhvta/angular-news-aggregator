@@ -1,13 +1,16 @@
 <div class="home-page">
   <app-headline [title]="sourceTitle"></app-headline>
-  
+
   <app-articles-selector
     [isLocalProvider]="isLocalProvider"
     (localProviderStatus)="toggleLocalNewsStatus()"
   ></app-articles-selector>
 
   <div class="home-page__content">
-    <app-articles-list></app-articles-list>
+    <app-articles-list
+      (loadNewsEvent)="loadNews()"
+      [articles]="articles"
+    ></app-articles-list>
   </div>
 
 </div>
