@@ -3,8 +3,8 @@
   margin: 0 auto;
   display: flex;
   padding: 29px;
-  border-top: 1px solid #81a3a7;
-  border-bottom: 1px solid #81a3a7;
+  border-top: 1px solid var(--PRIMARY);
+  border-bottom: 1px solid var(--PRIMARY);
 
   &__settings {
     flex: 1;
@@ -33,7 +33,7 @@
   select {
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #c2d3da;
+    border: 1px solid var(--PRIMARY-LIGHT);
   }
 
   //TODO: use shared component, check why input text is not rendered

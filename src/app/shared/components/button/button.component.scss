@@ -5,7 +5,7 @@
   border: none;
 
   &.primary {
-    color: #f1f3f2;
-    background-color: #81a3a7;//TODO: use theme constant
+    color: var(--LIGHT);
+    background-color: var(--PRIMARY);
   }
 }

@@ -14,18 +14,18 @@
 
   &__text {
     padding: 20px 5px;
-    color: #585a56;
-    background: #fafbfb;
+    color: var(--SECONDARY);
+    background: var(--LIGHT);
 
     &__title {
       font-size: 34px;
       font-weight: bold;
-      color: #272424;
+      color: var(--DARK);
       text-decoration: none;
     }
 
     &__date {
-      color: #585a56;
+      color: var(--SECONDARY);
     }
   }
 
