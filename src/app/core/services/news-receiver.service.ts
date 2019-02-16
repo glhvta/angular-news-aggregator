@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { WEB_NEWS } from 'src/app/core/constants/newsProviders';
 import NewsProvider from '../models/news-provider';
@@ -20,7 +21,7 @@ export class NewsReceiverService {
     this.provider = this.providerFactorty.get(providerType);
   }
 
-  public getNews(): Array<Article> {
+  public getNews(): Observable<Article[]> {
     return this.provider.getNews();
   }
 }

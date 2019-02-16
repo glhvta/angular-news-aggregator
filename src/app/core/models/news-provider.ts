@@ -1,7 +1,8 @@
+import { Observable } from 'rxjs';
 import { Article } from './article';
 
 interface NewsProvider {
-  getNews(): Array<Article>;
+  getNews(): Observable<Article[]>;
 }
 
 export default NewsProvider;

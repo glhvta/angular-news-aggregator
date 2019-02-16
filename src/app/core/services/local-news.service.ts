@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Article } from '../models/article';
 
@@ -9,7 +10,7 @@ export class LocalNewsService {
 
   constructor() { }
 
-  public getNews(): Array<Article> {
+  public getNews(): Observable<Article[]> {
     console.log('local news');
   }
 }
