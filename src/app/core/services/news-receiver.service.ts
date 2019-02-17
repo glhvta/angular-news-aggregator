@@ -17,11 +17,17 @@ export class NewsReceiverService {
     this.provider = this.providerFactorty.get(WEB_NEWS);
    }
 
-  public changeProvider(providerType: string): void {
+  public changeProvider(providerType: string): NewsReceiverService {
     this.provider = this.providerFactorty.get(providerType);
+
+    return this;
   }
 
   public getNews(): Observable<Article[]> {
     return this.provider.getNews();
+  }
+
+  public getArticle(id: number): Observable<Article> {
+    return this.provider.getArticle(id);
   }
 }

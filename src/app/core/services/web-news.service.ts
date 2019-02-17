@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { pluck, tap, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -6,11 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import { Article } from '../models/article';
 
 import { WEB_NEWS } from 'src/app/core/constants/newsProviders';
+import NewsProvider from '../models/news-provider';
 
 @Injectable({
   providedIn: 'root',
 })
-export class WebNewsService {
+export class WebNewsService implements NewsProvider {
   private type = WEB_NEWS;
   private page: number = 1;
   private articles: Article[] = [];
@@ -31,6 +32,10 @@ export class WebNewsService {
       map(() => this.webArticles),
       // catchError(console.warn),
     );
+  }
+
+  public getArticle(id: number): Observable<Article> {
+    return of(this.articles[id]);
   }
 
   private updateArticles = (articles: Article[]): void => {
