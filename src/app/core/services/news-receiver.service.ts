@@ -20,6 +20,9 @@ export class NewsReceiverService {
   public changeProvider(providerType: string): NewsReceiverService {
     this.provider = this.providerFactorty.get(providerType);
 
+    // TODO: remove
+    console.log('current provider', this.provider);
+
     return this;
   }
 

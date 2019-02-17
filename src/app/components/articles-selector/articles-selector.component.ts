@@ -10,18 +10,18 @@ export class ArticlesSelectorComponent implements OnInit {
   @Output() source: string;
   @Input() filterString: string;
   @Output() filterStringChange = new EventEmitter<string>();
-  @Output() localProviderStatus = new EventEmitter();
+  @Output() localProviderStatus = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  handleProviderChange() {
-    this.localProviderStatus.emit();
+  handleProviderChange(event): void {
+    this.localProviderStatus.emit(event);
   }
 
-  onFilterTextChange(filter: string) {
+  onFilterTextChange(filter: string): void {
     this.filterStringChange.emit(filter);
   }
 }

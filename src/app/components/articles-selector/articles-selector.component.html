@@ -19,7 +19,7 @@
     <div class="articles-selector__settings__form-control">
       <label>
         <span class="articles-selector__settings__label">Created by me:</span>
-        <input type="checkbox" [value]="isLocalProvider" (input)="handleProviderChange()"/>
+        <input type="checkbox" [ngModel]="isLocalProvider" (ngModelChange)="handleProviderChange($event)"/>
       </label>
     </div>
 

@@ -3,7 +3,7 @@
 
   <app-articles-selector
     [isLocalProvider]="isLocalProvider"
-    (localProviderStatus)="toggleLocalNewsStatus()"
+    (localProviderStatus)="changeNewsProvider($event)"
     [(filterString)]="filter"
   ></app-articles-selector>
 
