@@ -30,7 +30,7 @@ export class NewsReceiverService {
     return this.provider.getNews();
   }
 
-  public getArticle(id: number): Observable<Article> {
+  public getArticle(id: string): Observable<Article> {
     return this.provider.getArticle(id);
   }
 }

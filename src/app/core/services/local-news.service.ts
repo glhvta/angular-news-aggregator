@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -20,14 +20,17 @@ export class LocalNewsService implements NewsProvider {
 
   public getNews(): Observable<Article[]> {
     return this.http.get(this.requestEndpoint).pipe(
-      tap(console.log),
+      tap(this.updateArticles),
+      map(() => this.localArticles),
       // map(() => this.webArticles),
       // catchError(console.warn),
     );
   }
 
-  public getArticle(): Observable<Article> {
-    console.log('local article');
+  public getArticle(id: string): Observable<Article> {
+    const article = this.articles.find(({ _id }) => _id === id);
+
+    return of(article);
   }
 
   public createArticle(article: Article): Observable<Article> {
@@ -35,5 +38,17 @@ export class LocalNewsService implements NewsProvider {
     return this.http
       .post<Article>(this.requestEndpoint, { article })
       .pipe(tap(() => console.log('post request was done')));
+  }
+
+  // TODO: create base service with common methods
+  private updateArticles = (articles: Article[]): void => {
+    this.articles = [
+      ...this.articles,
+      ...articles.map(data => ({ ...data, provider: this.type })),
+    ];
+  }
+
+  private get localArticles(): Article[] {
+    return this.articles;
   }
 }

@@ -1,11 +1,11 @@
 <li class="article" [class.preview]="isPreview">
-  <a class="article__image" [routerLink]="['/article-details', { id: articleID, provider: article.provider }]">
+  <a class="article__image" [routerLink]="['/article-details', { id: article._id, provider: article.provider }]">
     <img [src]="article.urlToImage"/>
   </a>
 
   <div class="article__text">
     <a class="article__text__title" 
-      [routerLink]="['/article-details', { id: articleID, provider: article.provider }]"
+      [routerLink]="['/article-details', { id: article._id, provider: article.provider }]"
       [innerHTML]="article.title | highlightSearch: highlightStr"
     ></a>
 

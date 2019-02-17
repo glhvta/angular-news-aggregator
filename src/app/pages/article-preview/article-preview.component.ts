@@ -25,11 +25,10 @@ export class ArticlePreviewComponent implements OnInit {
 
   getArticle(): void {
     const { paramMap } = this.route.snapshot;
-    const id = Number(paramMap.get('id'));
 
     this.newsReceiver
       .changeProvider(paramMap.get('provider'))
-      .getArticle(id)
+      .getArticle(paramMap.get('id'))
       .subscribe(article => (this.article = article));
   }
 
