@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { pluck, tap, mapTo } from 'rxjs/operators';
+import { pluck, tap, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -25,7 +25,7 @@ export class WebNewsService {
     return this.http.get(this.requestUrl).pipe(
       pluck('articles'),
       tap(this.updateArticles),
-      mapTo(this.webArticles),
+      map(() => this.webArticles),
       // catchError(console.warn),
     );
   }

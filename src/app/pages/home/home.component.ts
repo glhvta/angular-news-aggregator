@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private newsReceiver: NewsReceiverService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadNews();
+  }
 
   loadNews(): void {
     this.newsReceiver.getNews()
