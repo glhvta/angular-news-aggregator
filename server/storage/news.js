@@ -1,13 +1,4 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
-
-const NewsSchema = new Schema({
-  author: String,
-  title: String,
-  publishedAt: Date
-});
-
-const NewsModel = mongoose.model("News", NewsSchema);
+const NewsModel = require('../models/Article');
 
 module.exports.read = async function() {
   try {
@@ -23,9 +14,17 @@ module.exports.read = async function() {
   }
 };
 
-module.exports.create = async function({ title, author, publishedAt }) {
+module.exports.create = async function(article) {
   try {
-    await NewsModel.create({ title, author, publishedAt });
+    await NewsModel.create({
+      title: article.title,
+      author: article.author,
+      url: article.url,
+      description: article.description,
+      content: article.content,
+      publishedAt: article.publishedAt,
+      urlToImage: article.urlToImage,
+    });
   } catch (err) {
     console.error(err);
   }

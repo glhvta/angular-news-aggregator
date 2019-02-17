@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const mocksNews = require("./mocks/news.json");
 const newsRouter = require("./routes/news");
 
-mongoose.connect('mongodb://localhost/newsdb', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/news', { useNewUrlParser: true });
 
 const app = express();
 
