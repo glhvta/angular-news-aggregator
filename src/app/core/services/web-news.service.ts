@@ -35,6 +35,9 @@ export class WebNewsService implements NewsProvider {
   }
 
   public getArticle(id: number): Observable<Article> {
+    // TODO: generate real id
+    // BUG: If articles have been filtered their indexes would be changed
+
     return of(this.articles[id]);
   }
 

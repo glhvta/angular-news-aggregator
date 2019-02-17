@@ -1,9 +1,9 @@
 :root {
-  --PRIMARY: #81A3A7;
-  --SECONDARY: #585A56;
-  --PRIMARY-LIGHT: #C2D3DA;
+  --PRIMARY: #81a3a7;
+  --SECONDARY: #585a56;
+  --PRIMARY-LIGHT: #c2d3da;
   --DARK: #272424;
-  --LIGHT: #F1F3F2;
+  --LIGHT: #f1f3f2;
 }
 
 html,
@@ -34,4 +34,8 @@ input:active,
 button:focus,
 button:active {
   outline: none;
+}
+
+mark {
+  background-color: var(--PRIMARY-LIGHT);
 }

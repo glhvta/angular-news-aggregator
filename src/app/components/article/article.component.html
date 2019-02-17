@@ -4,13 +4,18 @@
   </a>
 
   <div class="article__text">
-    <a class="article__text__title" [routerLink]="['/article-details', { id: articleID, provider: article.provider }]">
-      {{article.title}}
-    </a>
-    <p class="article__text__description">{{article.description}}</p>
+    <a class="article__text__title" 
+      [routerLink]="['/article-details', { id: articleID, provider: article.provider }]"
+      [innerHTML]="article.title | highlightSearch: highlightStr"
+    ></a>
+
+    <p class="article__text__description"
+      [innerHTML]="article.description | highlightSearch: highlightStr"
+    ></p>
+
     <div *ngIf="!isPreview">
-        <p class="article__text__description">{{article.content}}</p>
-        <p class="article__text__date">{{article.publishedAt | date}}</p> 
+      <p class="article__text__description">{{article.content}}</p>
+      <p class="article__text__date">{{article.publishedAt | date}}</p> 
     </div>
   </div>
 
