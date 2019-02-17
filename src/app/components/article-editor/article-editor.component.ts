@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Article } from 'src/app/core/models/article';
 
 @Component({
   selector: 'app-article-editor',
@@ -11,12 +12,14 @@ export class ArticleEditorComponent implements OnInit {
     title: new FormControl(),
     description: new FormControl(),
     content: new FormControl(),
-    image: new FormControl(),
+    urlToImage: new FormControl(),
     imageType: new FormControl(),
-    date: new FormControl(),
+    publishedAt: new FormControl(),
     author: new FormControl(),
-    sourceUrl: new FormControl(),
+    url: new FormControl(),
   });
+
+  @Output() submitEvent = new EventEmitter<Article>();
 
   imageType: string;
 
@@ -25,8 +28,7 @@ export class ArticleEditorComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.articleForm.value);
+  onSubmit(): void {
+    this.submitEvent.emit(this.articleForm.value);
   }
 }

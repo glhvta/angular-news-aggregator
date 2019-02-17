@@ -14,7 +14,7 @@ module.exports.read = async function() {
   }
 };
 
-module.exports.create = async function(article) {
+module.exports.create = async function({ article }) {
   try {
     await NewsModel.create({
       title: article.title,

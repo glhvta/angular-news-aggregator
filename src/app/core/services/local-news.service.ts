@@ -7,7 +7,6 @@ import { Article } from '../models/article';
 import NewsProvider from '../models/news-provider';
 import { LOCAL_NEWS } from '../constants/newsProviders';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +16,7 @@ export class LocalNewsService implements NewsProvider {
 
   private requestEndpoint = 'http://localhost:3000/local-news';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public getNews(): Observable<Article[]> {
     return this.http.get(this.requestEndpoint).pipe(
@@ -29,5 +28,12 @@ export class LocalNewsService implements NewsProvider {
 
   public getArticle(): Observable<Article> {
     console.log('local article');
+  }
+
+  public createArticle(article: Article): Observable<Article> {
+
+    return this.http
+      .post<Article>(this.requestEndpoint, { article })
+      .pipe(tap(() => console.log('post request was done')));
   }
 }
