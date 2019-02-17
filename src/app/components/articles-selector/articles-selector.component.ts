@@ -8,7 +8,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ArticlesSelectorComponent implements OnInit {
   @Input() isLocalProvider: boolean = false;
   @Output() source: string;
-  @Output() filterText: string;
+  @Input() filterString: string;
+  @Output() filterStringChange = new EventEmitter<string>();
   @Output() localProviderStatus = new EventEmitter();
 
   constructor() { }
@@ -18,5 +19,9 @@ export class ArticlesSelectorComponent implements OnInit {
 
   handleProviderChange() {
     this.localProviderStatus.emit();
+  }
+
+  onFilterTextChange(filter: string) {
+    this.filterStringChange.emit(filter);
   }
 }

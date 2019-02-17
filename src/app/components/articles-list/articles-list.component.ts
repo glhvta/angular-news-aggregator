@@ -9,6 +9,7 @@ import { Article } from 'src/app/core/models/article';
 export class ArticlesListComponent implements OnInit {
   @Output() loadNewsEvent = new EventEmitter();
   @Input() articles: Array<Article>;
+  @Input() filterString: string;
 
   constructor() { }
 

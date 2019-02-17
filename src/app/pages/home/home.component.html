@@ -4,12 +4,14 @@
   <app-articles-selector
     [isLocalProvider]="isLocalProvider"
     (localProviderStatus)="toggleLocalNewsStatus()"
+    [(filterString)]="filter"
   ></app-articles-selector>
 
   <div class="home-page__content">
     <app-articles-list
       (loadNewsEvent)="loadNews()"
       [articles]="articles"
+      [filterString]="filter"
     ></app-articles-list>
   </div>
 

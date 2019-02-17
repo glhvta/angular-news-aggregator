@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   isLocalProvider: boolean = true;
   sourceTitle: string = 'Source title';
   articles: Article[];
+  filter: string = '';
 
   constructor(private newsReceiver: NewsReceiverService) {}
 

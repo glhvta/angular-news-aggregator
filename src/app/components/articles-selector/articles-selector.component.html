@@ -15,7 +15,7 @@
     <div class="articles-selector__settings__form-control">
       <label>
         <button class="articles-selector__settings_label">Filter: </button>
-        <input type="text" [value]="filterText" />
+        <input type="text" [ngModel]="filterString" (ngModelChange)="onFilterTextChange($event)"/>
       </label>
     </div>
     <div class="articles-selector__settings__form-control">
