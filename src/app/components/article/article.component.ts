@@ -9,6 +9,7 @@ import { Article } from 'src/app/core/models/article';
 export class ArticleComponent implements OnInit {
   @Input() article: Article;
   @Input() isPreview: boolean;
+  @Input() articleID: number;
 
   constructor() { }
 

@@ -1,2 +1,2 @@
-export const LOCAL_NEWS = 'LOCAL_NEWS';
-export const WEB_NEWS = 'WEB_NEWS';
+export const LOCAL_NEWS = 'local_news';
+export const WEB_NEWS = 'web-news';

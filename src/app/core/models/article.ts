@@ -6,4 +6,5 @@ export interface Article {
   content: string;
   publishedAt: string;
   urlToImage: string;
+  provider?: string;
 }

@@ -1,10 +1,10 @@
 <li class="article" [class.preview]="isPreview">
-  <a class="article__image" routerLink="/article-preview">
+  <a class="article__image" [routerLink]="['/article-details', { id: articleID, provider: article.provider }]">
     <img [src]="article.urlToImage"/>
   </a>
 
   <div class="article__text">
-    <a class="article__text__title" routerLink="/article-preview">
+    <a class="article__text__title" [routerLink]="['/article-details', { id: articleID, provider: article.provider }]">
       {{article.title}}
     </a>
     <p class="article__text__description">{{article.description}}</p>

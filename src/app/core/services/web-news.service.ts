@@ -5,10 +5,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { Article } from '../models/article';
 
+import { WEB_NEWS } from 'src/app/core/constants/newsProviders';
+
 @Injectable({
   providedIn: 'root',
 })
 export class WebNewsService {
+  private type = WEB_NEWS;
   private page: number = 1;
   private articles: Article[] = [];
 
@@ -31,7 +34,10 @@ export class WebNewsService {
   }
 
   private updateArticles = (articles: Article[]): void => {
-    this.articles = this.articles.concat(articles);
+    this.articles = [
+      ...this.articles,
+      ...articles.map(data => ({ ...data, provider: this.type })),
+    ];
   }
 
   private get webArticles(): Article[] {

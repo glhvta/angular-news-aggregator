@@ -6,7 +6,7 @@ import { EditComponent } from './pages/edit/edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'article-preview', component: ArticlePreviewComponent },
+  { path: 'article-details', component: ArticlePreviewComponent },
   { path: 'edit', component: EditComponent },
 ];
 
