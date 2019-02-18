@@ -25,6 +25,10 @@ export class LocalNewsService implements NewsProvider {
     );
   }
 
+  public getSavedNews(): Observable<Article[]> {
+    return this.getNews();
+  }
+
   public getArticle(id: string): Observable<Article> {
     return this.http
       .get<Article>(`${this.requestEndpoint}/${id}`)

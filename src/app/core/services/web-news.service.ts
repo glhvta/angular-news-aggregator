@@ -38,6 +38,10 @@ export class WebNewsService implements NewsProvider {
     return of(this.articles[id]);
   }
 
+  public getSavedNews(): Observable<Article[]> {
+    return of(this.articles);
+  }
+
   private updateArticles = (articles: Article[]): void => {
     this.articles = this.articles.concat(this.transformResponse(articles));
   }

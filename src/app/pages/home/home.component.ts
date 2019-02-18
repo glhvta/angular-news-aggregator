@@ -12,7 +12,7 @@ import { LocalNewsService } from 'src/app/core/services/local-news.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  isLocalProvider: boolean = true;
+  isLocalProvider: boolean = false;
   sourceTitle: string = 'Source title';
   articles: Article[];
   filter: string = '';
@@ -36,7 +36,10 @@ export class HomeComponent implements OnInit {
   changeNewsProvider(isLocalProvider: boolean): void {
     const provider = isLocalProvider ? LOCAL_NEWS : WEB_NEWS;
 
-    this.newsReceiver.changeProvider(provider);
+    this.newsReceiver
+      .changeProvider(provider)
+      .getSavedNews()
+      .subscribe(articles => (this.articles = articles));
   }
 
   deleteArticle(id: string): void {

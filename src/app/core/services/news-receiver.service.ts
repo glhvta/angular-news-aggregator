@@ -33,4 +33,8 @@ export class NewsReceiverService {
   public getArticle(id: string): Observable<Article> {
     return this.provider.getArticle(id);
   }
+
+  public getSavedNews(): Observable<Article[]> {
+    return this.provider.getSavedNews();
+  }
 }
