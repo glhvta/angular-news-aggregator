@@ -12,6 +12,7 @@
       (loadNewsEvent)="loadNews()"
       [articles]="articles"
       [filterString]="filter"
+      (deleteArticleEvent)="deleteArticle($event)"
     ></app-articles-list>
   </div>
 

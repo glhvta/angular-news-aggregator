@@ -8,6 +8,7 @@ import { Article } from 'src/app/core/models/article';
 })
 export class ArticlesListComponent implements OnInit {
   @Output() loadNewsEvent = new EventEmitter();
+  @Output() deleteArticleEvent = new EventEmitter();
   @Input() articles: Array<Article>;
   @Input() filterString: string;
 
@@ -16,7 +17,11 @@ export class ArticlesListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadButtonClick() {
+  onLoadButtonClick(): void {
     this.loadNewsEvent.emit();
+  }
+
+  deleteArticle(id: string): void {
+    this.deleteArticleEvent.emit(id);
   }
 }

@@ -43,6 +43,12 @@ export class LocalNewsService implements NewsProvider {
       .pipe(tap(() => console.log('Put request was done')));
   }
 
+  public deleteArticle(id: string): Observable<any> {
+    return this.http
+      .delete(`${this.requestEndpoint}/${id}`)
+      .pipe(tap(() => console.log('Delete request was done')));
+  }
+
   private addProviderType = (articles: Article[]): Article[] => {
     return articles.map(data => ({ ...data, provider: this.type }));
   }

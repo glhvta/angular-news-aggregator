@@ -22,9 +22,9 @@
     <div class="article__info__column" *ngIf="isLocalProvider(article.provider)">
       <div class="article__info__actions" >
           <a [routerLink]="['/edit-article', { id: article._id }]">
-            <app-button text="Edit" type="primary" (buttonClick)="handleLogout()"></app-button>
+            <app-button text="Edit" type="primary"></app-button>
           </a>
-          <app-button text="Delete" (buttonClick)="handleLogout()"></app-button>
+          <app-button text="Delete" (buttonClick)="handleArticleDelete(article._id)"></app-button>
         </div>
     </div>
 

@@ -4,6 +4,7 @@
       [article]="article" 
       isPreview="true"
       [highlightStr]="filterString"
+      (deleteArticleEvent)="deleteArticle($event)"
     ></app-article>
   </ul>
   <div class="articles-list__loading-btn">
