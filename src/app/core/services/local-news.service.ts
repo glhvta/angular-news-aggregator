@@ -14,7 +14,9 @@ export class LocalNewsService implements NewsProvider {
   private type = LOCAL_NEWS;
   private requestEndpoint = 'http://localhost:3000/local-news';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+
+  }
 
   public getNews(): Observable<Article[]> {
     return this.http.get(this.requestEndpoint).pipe(

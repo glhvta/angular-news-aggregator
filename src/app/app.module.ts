@@ -20,6 +20,7 @@ import { ArticlesSelectorComponent } from './components/articles-selector/articl
 import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 import { ArticleFilterPipe } from './core/pipes/article-filter.pipe';
 import { HighlightSearchPipe } from './core/pipes/highlight-search.pipe';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HighlightSearchPipe } from './core/pipes/highlight-search.pipe';
     ArticlesListComponent,
     ArticleFilterPipe,
     HighlightSearchPipe,
+    CreateArticleComponent,
   ],
   imports: [
     BrowserModule,
