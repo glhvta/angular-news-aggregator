@@ -35,17 +35,11 @@ export class WebNewsService implements NewsProvider {
   }
 
   public getArticle(id: string): Observable<Article> {
-    // TODO: generate real id
-    // BUG: If articles have been filtered their indexes would be changed
-
     return of(this.articles[id]);
   }
 
   private updateArticles = (articles: Article[]): void => {
-    this.articles = [
-      ...this.articles,
-      ...articles.map(data => ({ ...data, provider: this.type })),
-    ];
+    this.articles = this.articles.concat(this.transformResponse(articles));
   }
 
   private get webArticles(): Article[] {
@@ -56,7 +50,17 @@ export class WebNewsService implements NewsProvider {
     const { API_KEY, endPoint } = this.requestConfig;
 
     // TODO: refactor hardcoded query
-    return `${endPoint}?apiKey=${API_KEY}&language=en&pageSize=5&page=${
-      this.page++}`;
+    return `${endPoint}?apiKey=${API_KEY}&language=en&pageSize=5&page=${this
+      .page++}`;
+  }
+
+  private transformResponse(articles: Article[]): Article[] {
+    const length = this.articles.length;
+
+    return articles.map((data, i) => ({
+      ...data,
+      provider: this.type,
+      _id: String(length + i),
+    }));
   }
 }

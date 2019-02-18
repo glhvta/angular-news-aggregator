@@ -1,9 +1,8 @@
 <div class="articles-list">
-  <ul *ngFor="let article of articles | articleFilter: filterString; let i = index">
+  <ul *ngFor="let article of articles | articleFilter: filterString;">
     <app-article 
       [article]="article" 
       isPreview="true"
-      [articleID]="i" 
       [highlightStr]="filterString"
     ></app-article>
   </ul>
