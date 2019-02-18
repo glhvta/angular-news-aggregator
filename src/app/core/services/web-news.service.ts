@@ -35,7 +35,9 @@ export class WebNewsService implements NewsProvider {
   }
 
   public getArticle(id: string): Observable<Article> {
-    return of(this.articles[id]);
+    const article = this.articles.find(({ _id }) => _id === id);
+
+    return of(article);
   }
 
   public getSavedNews(): Observable<Article[]> {
