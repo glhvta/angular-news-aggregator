@@ -3,20 +3,30 @@
     <img [src]="article.urlToImage"/>
   </a>
 
-  <div class="article__text">
-    <a class="article__text__title" 
-      [routerLink]="['/article-details', { id: article._id, provider: article.provider }]"
-      [innerHTML]="article.title | highlightSearch: highlightStr"
-    ></a>
+  <div class="article__info">
+    <div class="article__info__column">
+      <a class="article__info__title" 
+        [routerLink]="['/article-details', { id: article._id, provider: article.provider }]"
+        [innerHTML]="article.title | highlightSearch: highlightStr"
+      ></a>
 
-    <p class="article__text__description"
-      [innerHTML]="article.description | highlightSearch: highlightStr"
-    ></p>
+      <p class="article__info__description"
+        [innerHTML]="article.description | highlightSearch: highlightStr"
+      ></p>
 
-    <div *ngIf="!isPreview">
-      <p class="article__text__description">{{article.content}}</p>
-      <p class="article__text__date">{{article.publishedAt | date}}</p> 
+      <div *ngIf="!isPreview">
+        <p class="article__info__description">{{article.content}}</p>
+        <p class="article__info__date">{{article.publishedAt | date}}</p> 
+      </div>
     </div>
-  </div>
+    <div class="article__info__column" *ngIf="isLocalProvider(article.provider)">
+      <div class="article__info__actions" >
+          <a [routerLink]="['/edit-article', { id: article._id }]">
+            <app-button text="Edit" type="primary" (buttonClick)="handleLogout()"></app-button>
+          </a>
+          <app-button text="Delete" (buttonClick)="handleLogout()"></app-button>
+        </div>
+    </div>
 
+  </div>
 </li>

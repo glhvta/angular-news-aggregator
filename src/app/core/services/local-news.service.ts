@@ -28,13 +28,19 @@ export class LocalNewsService implements NewsProvider {
   public getArticle(id: string): Observable<Article> {
     return this.http
       .get<Article>(`${this.requestEndpoint}/${id}`)
-      .pipe(tap(data => console.log('article local: ', data)));
+      .pipe(tap(data => console.log('Local article: ', data)));
   }
 
   public createArticle(article: Article): Observable<Article> {
     return this.http
       .post<Article>(this.requestEndpoint, { article })
-      .pipe(tap(() => console.log('post request was done')));
+      .pipe(tap(() => console.log('Post request was done')));
+  }
+
+  public updateArticle(article: Article): Observable<any> {
+    return this.http
+      .put<Article>(`${this.requestEndpoint}/${article._id}`, { article })
+      .pipe(tap(() => console.log('Put request was done')));
   }
 
   private addProviderType = (articles: Article[]): Article[] => {

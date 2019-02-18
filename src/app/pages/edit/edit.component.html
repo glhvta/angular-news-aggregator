@@ -1,6 +1,7 @@
 <div class="edit-page">
   <app-headline title="Edit"></app-headline>
   <app-article-editor
-    (submitEvent)="createArticle($event)"
+    [article]="article"
+    (submitEvent)="updateArticle($event)"
   ></app-article-editor>
 </div>

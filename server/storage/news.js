@@ -30,9 +30,9 @@ module.exports.create = async function({ article }) {
   }
 };
 
-module.exports.update = async function(id, data) {
+module.exports.update = async function(id, { article }) {
   try {
-    await NewsModel.findByIdAndUpdate(id, data)
+    await NewsModel.findByIdAndUpdate(id, article)
   } catch (err) {
     console.error(err);
   }

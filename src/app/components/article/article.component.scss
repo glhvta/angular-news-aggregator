@@ -12,11 +12,13 @@
     }
   }
 
-  &__text {
+  &__info {
+    flex: 1;
+    display: flex;
     padding: 20px 5px;
     color: var(--SECONDARY);
     background: var(--LIGHT);
-    flex: 1;
+    justify-content: space-between;
 
     &__title {
       font-size: 34px;
@@ -31,6 +33,16 @@
 
     &__date {
       color: var(--SECONDARY);
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      app-button {
+        margin-top: 5px;
+      }
     }
   }
 
