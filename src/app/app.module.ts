@@ -21,6 +21,7 @@ import { ArticlesListComponent } from './components/articles-list/articles-list.
 import { ArticleFilterPipe } from './core/pipes/article-filter.pipe';
 import { HighlightSearchPipe } from './core/pipes/highlight-search.pipe';
 import { CreateArticleComponent } from './pages/create-article/create-article.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CreateArticleComponent } from './pages/create-article/create-article.co
     ArticleFilterPipe,
     HighlightSearchPipe,
     CreateArticleComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
