@@ -66,7 +66,7 @@
     </div>
   </div>
   <div class="article-editor__buttons">
-    <app-button type="submit" text="Submit"></app-button>
+    <app-button [disabled]="articleForm.invalid" type="submit" text="Submit"></app-button>
     <!-- <app-button type="reset" text="Clear"></app-button> -->
   </div>
 </form>

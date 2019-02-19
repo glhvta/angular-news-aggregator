@@ -7,7 +7,7 @@ import {
   Input,
   SimpleChanges,
 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { Article } from 'src/app/core/models/article';
 
@@ -23,13 +23,13 @@ export class ArticleEditorComponent implements OnInit, OnChanges {
   imageType: string;
   articleForm = this.fb.group({
     _id: [''],
-    title: [''],
-    description: [''],
+    title: ['', Validators.required],
+    description: ['', Validators.required],
     content: [''],
     urlToImage: [''],
     publishedAt: [''],
     author: [''],
-    url: [''],
+    url: ['', Validators.required],
   });
 
   constructor(private fb: FormBuilder) {}
@@ -57,9 +57,11 @@ export class ArticleEditorComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
-    this.submitEvent.emit(this.articleForm.value);
+    if (this.articleForm.valid) {
+      this.submitEvent.emit(this.articleForm.value);
 
-    // Better than any modal :))
-    alert('Article data was changed');
+      // Better than any modal :))
+      alert('Article data was changed');
+    }
   }
 }
