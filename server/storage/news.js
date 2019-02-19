@@ -1,5 +1,7 @@
 const NewsModel = require('../models/Article');
 
+const source = 'local news';
+
 module.exports.read = async function() {
   try {
     if (arguments.length) {
@@ -24,6 +26,10 @@ module.exports.create = async function({ article }) {
       content: article.content,
       publishedAt: article.publishedAt,
       urlToImage: article.urlToImage,
+      source: {
+        id: source,
+        name: source,
+      }
     });
   } catch (err) {
     console.error(err);

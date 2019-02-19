@@ -1,3 +1,8 @@
+interface ArticleSource {
+  id: string;
+  name: string;
+}
+
 export interface Article {
   _id: string;
   title: string;
@@ -8,4 +13,5 @@ export interface Article {
   publishedAt: string;
   urlToImage: string;
   provider?: string;
+  source?: ArticleSource;
 }

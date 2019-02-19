@@ -8,6 +8,10 @@ const Article = mongoose.Schema({
   content: String,
   publishedAt: String,
   urlToImage: String,
+  source: {
+    id: String,
+    name: String,
+  },
 })
 
 module.exports = mongoose.model('news', Article);
