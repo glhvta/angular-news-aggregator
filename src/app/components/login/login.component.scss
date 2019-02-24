@@ -17,8 +17,8 @@
 
   button {
     font-size: 16px;
-    background-color: #81a3a7;//TODO: use theme constant
-    color: #f1f3f2;
+    background-color: var(--PRIMARY);
+    color: var(--LIGHT);
     padding: 8px 15px;
     border-radius: 100px;
     border: none;

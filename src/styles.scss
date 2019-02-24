@@ -1,4 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --PRIMARY: #81a3a7;
+  --SECONDARY: #585a56;
+  --PRIMARY-LIGHT: #c2d3da;
+  --DARK: #272424;
+  --LIGHT: #f1f3f2;
+  --ERROR: #ff0000;
+}
+
 html,
 body,
 .app-root {
@@ -20,7 +28,15 @@ a {
   text-decoration: none;
 }
 
+select:focus,
+select:active,
+input:focus,
+input:active,
 button:focus,
 button:active {
   outline: none;
+}
+
+mark {
+  background-color: var(--PRIMARY-LIGHT);
 }

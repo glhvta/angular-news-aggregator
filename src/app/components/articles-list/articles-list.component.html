@@ -1,0 +1,16 @@
+<div class="articles-list">
+  <ul *ngFor="let article of articles | articleFilter: filterString;">
+    <app-article 
+      [article]="article" 
+      isPreview="true"
+      [highlightStr]="filterString"
+      (deleteArticleEvent)="deleteArticle($event)"
+    ></app-article>
+  </ul>
+  <div class="articles-list__loading-btn">
+    <app-button 
+      text="Load more" 
+      type="primary"
+      (buttonClick)="onLoadButtonClick()"></app-button>
+  </div>
+</div>

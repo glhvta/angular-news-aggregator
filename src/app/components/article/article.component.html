@@ -1,17 +1,32 @@
 <li class="article" [class.preview]="isPreview">
-  <a class="article__image" href="/article-preview">
-    <img [src]="article.urlToImage"/>
+  <a class="article__image" [routerLink]="['/article-details', { id: article?._id, provider: article?.provider }]">
+    <img [src]="article?.urlToImage"/>
   </a>
 
-  <div class="article__text">
-    <a class="article__text__title" href="/article-preview" target="_blank">
-      {{article.title}}
-    </a>
-    <p class="article__text__description">{{article.description}}</p>
-    <div *ngIf="!isPreview">
-        <p class="article__text__description">{{article.content}}</p>
-        <p class="article__text__date">{{article.publishedAt | date}}</p> 
-    </div>
-  </div>
+  <div class="article__info">
+    <div class="article__info__column">
+      <a class="article__info__title" 
+        [routerLink]="['/article-details', { id: article?._id, provider: article?.provider }]"
+        [innerHTML]="article?.title | highlightSearch: highlightStr"
+      ></a>
 
+      <p class="article__info__description"
+        [innerHTML]="article?.description | highlightSearch: highlightStr"
+      ></p>
+
+      <div *ngIf="!isPreview">
+        <p class="article__info__description">{{article?.content}}</p>
+        <p class="article__info__date">{{article?.publishedAt | date}}</p> 
+      </div>
+    </div>
+    <div class="article__info__column" *ngIf="isLocalProvider(article?.provider)">
+      <div class="article__info__actions" >
+          <a [routerLink]="['/edit-article', { id: article?._id }]">
+            <app-button text="Edit" type="primary"></app-button>
+          </a>
+          <app-button text="Delete" (buttonClick)="handleArticleDelete(article?._id)"></app-button>
+        </div>
+    </div>
+
+  </div>
 </li>

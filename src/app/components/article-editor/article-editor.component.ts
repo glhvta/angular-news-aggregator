@@ -1,32 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  EventEmitter,
+  Output,
+  Input,
+  SimpleChanges,
+} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+
+import { Article } from 'src/app/core/models/article';
 
 @Component({
   selector: 'app-article-editor',
   templateUrl: './article-editor.component.html',
   styleUrls: ['./article-editor.component.scss'],
 })
-export class ArticleEditorComponent implements OnInit {
-  articleForm = new FormGroup({
-    title: new FormControl(),
-    description: new FormControl(),
-    content: new FormControl(),
-    image: new FormControl(),
-    imageType: new FormControl(),
-    date: new FormControl(),
-    author: new FormControl(),
-    sourceUrl: new FormControl(),
-  });
+export class ArticleEditorComponent implements OnInit, OnChanges {
+  @Input() article: Article;
+  @Output() submitEvent = new EventEmitter<Article>();
 
   imageType: string;
+  articleForm = this.fb.group({
+    _id: [''],
+    title: ['', Validators.required],
+    description: ['', Validators.required],
+    content: [''],
+    urlToImage: [''],
+    publishedAt: [''],
+    author: [''],
+    url: ['', Validators.required],
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const article = changes.article.currentValue;
+
+    if (!article) {
+      return;
+    }
+
+    // TODO: mb there is better approach for this
+    this.articleForm.setValue({
+      _id: article._id || '',
+      title: article.title || '',
+      description: article.description || '',
+      content: article.content || '',
+      urlToImage: article.urlToImage || '',
+      publishedAt: article.publishedAt || '',
+      author: article.author || '',
+      url: article.url || '',
+    });
   }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.articleForm.value);
+  onSubmit(): void {
+    if (this.articleForm.valid) {
+      this.submitEvent.emit(this.articleForm.value);
+
+      // Better than any modal :))
+      alert('Article data was changed');
+    }
   }
 }

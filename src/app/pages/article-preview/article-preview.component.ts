@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { articleMock } from 'src/app/core/mocks/article.mock';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Article } from 'src/app/core/models/article';
+import { NewsReceiverService } from 'src/app/core/services/news-receiver.service';
 
 @Component({
   selector: 'app-article-preview',
@@ -8,10 +11,29 @@ import { Article } from 'src/app/core/models/article';
   styleUrls: ['./article-preview.component.scss'],
 })
 export class ArticlePreviewComponent implements OnInit {
-  article: Article = articleMock;
-  constructor() { }
+  article: Article;
+
+  constructor(
+    private route: ActivatedRoute,
+    private newsReceiver: NewsReceiverService,
+    private location: Location,
+  ) {}
 
   ngOnInit() {
+    this.getArticle();
   }
 
+  getArticle(): void {
+    const { paramMap } = this.route.snapshot;
+
+    this.newsReceiver
+      .changeProvider(paramMap.get('provider'))
+      .getArticle(paramMap.get('id'))
+      .subscribe(article => (this.article = article));
+  }
+
+  back(): void {
+    // TODO: create back button
+    this.location.back();
+  }
 }

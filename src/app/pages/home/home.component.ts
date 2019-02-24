@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Article } from 'src/app/core/models/article';
-import { articlesMock } from 'src/app/core/mocks/articles.mock';
+import { NewsReceiverService } from 'src/app/core/services/news-receiver.service';
+
+import { LOCAL_NEWS, WEB_NEWS } from 'src/app/core/constants/newsProviders';
+import { LocalNewsService } from 'src/app/core/services/local-news.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +12,41 @@ import { articlesMock } from 'src/app/core/mocks/articles.mock';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  sourceTitle: string = 'Source title'; // TODO: remove mocks
-  articles: Article[] = articlesMock;
+  isLocalProvider: boolean = false;
+  sourceTitle: string = 'Source title';
+  articles: Article[];
+  filter: string = '';
 
-  constructor() { }
+  constructor(
+    private newsReceiver: NewsReceiverService,
+    private localNewsService: LocalNewsService,
+  ) {}
 
   ngOnInit() {
+    this.changeNewsProvider(this.isLocalProvider);
+    this.loadNews();
   }
 
-  loadNews() {
-    console.log('Load news!');
+  loadNews(): void {
+    this.newsReceiver
+      .getNews()
+      .subscribe(articles => (this.articles = articles));
   }
 
+  changeNewsProvider(isLocalProvider: boolean): void {
+    const provider = isLocalProvider ? LOCAL_NEWS : WEB_NEWS;
+
+    this.newsReceiver
+      .changeProvider(provider)
+      .getSavedNews()
+      .subscribe(articles => (this.articles = articles));
+  }
+
+  deleteArticle(id: string): void {
+    // Is it right to filter articles here?
+
+    this.localNewsService.deleteArticle(id).subscribe(() => {
+      this.articles = this.articles.filter(({ _id }) => _id !== id);
+    });
+  }
 }

@@ -2,6 +2,7 @@
   class="button"
   [class.primary]="type === 'primary'"
   [class.secondary]="type === 'secondary'"
+  [disabled]="disabled"
   (click)="handleClick()">
   {{text}}
 </button>

@@ -1,14 +1,19 @@
 <div class="home-page">
   <app-headline [title]="sourceTitle"></app-headline>
+
+  <app-articles-selector
+    [isLocalProvider]="isLocalProvider"
+    (localProviderStatus)="changeNewsProvider($event)"
+    [(filterString)]="filter"
+  ></app-articles-selector>
+
   <div class="home-page__content">
-    <ul *ngFor="let article of articles">
-      <app-article [article]="article" isPreview="true"></app-article>
-    </ul>
-    <div class="home-page__loading-btn">
-      <app-button 
-        text="Load more" 
-        type="primary"
-        (buttonClick)="loadNews()"></app-button>
-    </div>
+    <app-articles-list
+      (loadNewsEvent)="loadNews()"
+      [articles]="articles"
+      [filterString]="filter"
+      (deleteArticleEvent)="deleteArticle($event)"
+    ></app-articles-list>
   </div>
+
 </div>

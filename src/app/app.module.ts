@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,12 @@ import { ArticlePreviewComponent } from './pages/article-preview/article-preview
 import { EditComponent } from './pages/edit/edit.component';
 import { ArticleEditorComponent } from './components/article-editor/article-editor.component';
 import { InputComponent } from './shared/components/input/input.component';
+import { ArticlesSelectorComponent } from './components/articles-selector/articles-selector.component';
+import { ArticlesListComponent } from './components/articles-list/articles-list.component';
+import { ArticleFilterPipe } from './core/pipes/article-filter.pipe';
+import { HighlightSearchPipe } from './core/pipes/highlight-search.pipe';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +37,19 @@ import { InputComponent } from './shared/components/input/input.component';
     EditComponent,
     ArticleEditorComponent,
     InputComponent,
+    ArticlesSelectorComponent,
+    ArticlesListComponent,
+    ArticleFilterPipe,
+    HighlightSearchPipe,
+    CreateArticleComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

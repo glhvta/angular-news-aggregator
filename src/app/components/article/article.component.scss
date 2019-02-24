@@ -12,27 +12,44 @@
     }
   }
 
-  &__text {
+  &__info {
+    flex: 1;
+    display: flex;
     padding: 20px 5px;
-    color: #585a56;
-    background: #fafbfb;
+    color: var(--SECONDARY);
+    background: var(--LIGHT);
+    justify-content: space-between;
 
     &__title {
       font-size: 34px;
       font-weight: bold;
-      color: #272424;
+      color: var(--DARK);
       text-decoration: none;
+
+      &:hover {
+        color: var(--PRIMARY);
+      }
     }
 
     &__date {
-      color: #585a56;
+      color: var(--SECONDARY);
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      app-button {
+        margin-top: 5px;
+      }
     }
   }
 
   &__image {
     width: 100%;
     margin-bottom: 30px;
-
+    flex: 1;
 
     img {
       width: 100%;

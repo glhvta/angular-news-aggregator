@@ -1,19 +1,19 @@
 .footer {
   display: flex;
   font-size: 14px;
-  color: #F1F3F2;
+  color: var(--LIGHT);
   padding: 10px 40px;
   align-items: center;
-  background-color: #242424; //TODO: use color constants
+  background-color: var(--DARK);
   justify-content: space-between;
 
   &__attrib {
     &__link {
-      color: #81a3a7;//TODO: use color constants
+      color: var(--PRIMARY);
     }
 
     &__link:hover {
-      color: #c2d3da;
+      color: var(--PRIMARY-LIGHT);
     }
   }
 }

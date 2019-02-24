@@ -1,13 +1,6 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const NewsModel = require('../models/Article');
 
-const NewsSchema = new Schema({
-  author: String,
-  title: String,
-  publishedAt: Date
-});
-
-const NewsModel = mongoose.model("News", NewsSchema);
+const source = 'local news';
 
 module.exports.read = async function() {
   try {
@@ -23,17 +16,29 @@ module.exports.read = async function() {
   }
 };
 
-module.exports.create = async function({ title, author, publishedAt }) {
+module.exports.create = async function({ article }) {
   try {
-    await NewsModel.create({ title, author, publishedAt });
+    await NewsModel.create({
+      title: article.title,
+      author: article.author,
+      url: article.url,
+      description: article.description,
+      content: article.content,
+      publishedAt: article.publishedAt,
+      urlToImage: article.urlToImage,
+      source: {
+        id: source,
+        name: source,
+      }
+    });
   } catch (err) {
     console.error(err);
   }
 };
 
-module.exports.update = async function(id, data) {
+module.exports.update = async function(id, { article }) {
   try {
-    await NewsModel.findByIdAndUpdate(id, data)
+    await NewsModel.findByIdAndUpdate(id, article)
   } catch (err) {
     console.error(err);
   }

@@ -1,0 +1,29 @@
+<div  class="articles-selector">
+  <!-- TODO: Refactor and split into components! -->
+  <div class="articles-selector__settings">
+
+    <div class="articles-selector__settings__form-control">
+        <label  class="articles-selector__settings__label" for="source">Select source:</label>
+        <!-- TODO: remove mocks -->
+        <select  name="source">
+            <option value="">--Please choose an option--</option>
+            <option value="bbc">BBS</option>
+            <option value="times">TIMES</option>
+        </select>
+        
+    </div>
+    <div class="articles-selector__settings__form-control">
+        <label class="articles-selector__settings__label">Filter: </label>
+        <input type="text" [ngModel]="filterString" (ngModelChange)="onFilterTextChange($event)"/>
+    </div>
+    <div class="articles-selector__settings__form-control">
+      <label>
+        <span class="articles-selector__settings__label">Created by me:</span>
+        <input type="checkbox" [ngModel]="isLocalProvider" (ngModelChange)="handleProviderChange($event)"/>
+      </label>
+    </div>
+
+  </div>
+
+  <a routerLink="/create-article"><button>Add Article</button></a>
+</div>
